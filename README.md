@@ -26,3 +26,6 @@ video recording from class
 
 # Depolyed 
 https://glidingdiplomat.github.io/SVG-Logo-Maker/
+
+# Repository
+https://github.com/Glidingdiplomat/SVG-Logo-Maker
