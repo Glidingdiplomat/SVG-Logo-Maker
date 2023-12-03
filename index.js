@@ -30,14 +30,38 @@ const questions = [
 ];
 
 function runApp() {
-    return inquirer.prompt(question)
-    .then(data) => (
-        const ShapesFunction = [data.Shapes];
-        if (ShapesFunction) {
-            const logo = ShapesFunction(data);
-            const directoryPath = './examples';
+  return inquirer
+    .prompt(question)
+    .then((data) => {
+      const ShapesFunction = [data.Shapes];
+      if (ShapesFunction) {
+        const logo = ShapesFunction(data);
+        const directoryPath = "./examples";
 
-            if (!fs.existSync)
+        if (!fs.existSync(directoryPath)) {
+          fs.mkdirSync(directoryPath);
         }
-    )
+
+        const fileName = `${data.characters.replacce(/\s/g, "_")}_${
+          data.shape
+        }.svg`;
+        const filePath = `./examples/${fileName}`;
+
+        fs.writeFile(filePath, logo, (err) => {
+          if (err) {
+            console.error(`Error writing file ${filePath}: ${err}`);
+          } else {
+            console.log("Logo saved successfully!");
+            console.log("File saved at:", filePath);
+          }
+        });
+      } else {
+        console.error("Invalid shape selected");
+      }
+    })
+    .catch((error) => {
+      console.log(`Error during inquirer prompt: ${error}`);
+    });
 }
+
+runApp();
