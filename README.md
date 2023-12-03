@@ -23,3 +23,6 @@ w3schools
 miniproject from class lectures provided on the screenshot shown
 
 video recording from class
+
+# Depolyed 
+https://glidingdiplomat.github.io/SVG-Logo-Maker/
