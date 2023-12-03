@@ -42,7 +42,7 @@ function runApp() {
           fs.mkdirSync(directoryPath);
         }
 
-        const fileName = `${data.characters.replacce(/\s/g, "_")}_${
+        const fileName = `${data.characters.replace(/\s/g, "_")}_${
           data.shape
         }.svg`;
         const filePath = `./examples/${fileName}`;
